@@ -1,6 +1,23 @@
 import java.io.*;
+import java.io.FileWriter; 
 
 class CSVReadWrite{
+    public static void addData() throws IOException{
+        String str = "File Handling in Java using "+ 
+                " FileWriter and FileReader"; 
+  
+        // attach a file to FileWriter  
+        FileWriter fw=new FileWriter("output.csv"); 
+  
+        // read character wise from string and write  
+        // into FileWriter  
+        for (int i = 0; i < str.length(); i++) 
+            fw.write(str.charAt(i),str.charAt(i)); 
+  
+        System.out.println("Writing successful"); 
+        //close the file  
+        fw.close(); 
+    }
     public static void main(String args[])throws IOException{
         String choice="y";
         int menuChoice;
@@ -12,6 +29,7 @@ class CSVReadWrite{
             System.out.println("2. Display data / create file for any specific date");
             System.out.println("3. Open the csv file");
             System.out.println("Enter choice 1,2,3");
+            addData();
             menuChoice=Integer.parseInt(br.readLine());
             switch(menuChoice){
                 case 1: System.out.println("What date? (in format DD/MM/YYYY)");
